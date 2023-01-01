@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  calcount:
+    build: .
+    container_name: calcountbackend
+    ports:
+      - '8080:8080'
+    depends_on:
+      calcountdatabase:
+        condition: service_healthy
+    restart: on-failure
+  calcountdatabase:
+    image: mysql:8.0
+    container_name: calcountdatabase
+    environment:
+      MYSQL_DATABASE: calcount
+      MYSQL_USER: calcount_dev
+      MYSQL_PASSWORD: x7a2b3de
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    healthcheck:
+      test: mysql calcount --user=calcount_dev --password='x7a2b3de' --silent --execute "SELECT 1;"
+      interval: 15s
+      timeout: 3s
+      retries: 20

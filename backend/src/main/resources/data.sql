@@ -1,0 +1,1 @@
+INSERT INTO foods(english_name,english_description, calories_per100grams,protein_per100grams,carbohydrates_per100grams,fat_per100grams,is_verified) VALUES ('Chicken Breast, Raw','High Protein Source',165,31,0,3.6,true);
