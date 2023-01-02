@@ -68,12 +68,12 @@ const FoodInMeal = ({ foodDetails }) => {
   return (
     <div className="flex" style={{ gap: "0.25rem" }}>
       <Button label={foodDetails.name + " (" + foodDetails.amountOfGrams + " grams)"}
-        className={classNames("p-button-sm p-1 font-semibold", { "": true })}
+        className={classNames("p-button-sm flex-1 p-1 font-semibold", { "": true })}
         onClick={() => setDialogVisible(true)}
       />
 
       <Button icon="pi pi-minus"
-        className={classNames("p-button-rounded ml-auto", { "": true })}
+        className={classNames("p-button-text", { "": true })}
         onClick={() => handleFoodInMealRemoval()}
       />
 

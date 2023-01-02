@@ -17,6 +17,7 @@ const LoginForm = () => {
   const setAuthenticationState = useZustand(state => state.setAuthenticationState)
   const setUserId = useZustand(state => state.setUserId)
   const setUsername = useZustand(state => state.setUsername)
+  const setAuthority = useZustand(state => state.setAuthority)
   const setDailyDetails = useZustand(state => state.setDailyDetails)
 
   const toast = useRef(null)
@@ -33,6 +34,8 @@ const LoginForm = () => {
         setAuthenticationState(true)
         setUserId(response.data.userId)
         setUsername(response.data.username)
+        setAuthority(response.data.authority)
+        setAuthenticationState(response.data.authority)
         setDailyDetails(response.data.dailyDetails)
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt
       }

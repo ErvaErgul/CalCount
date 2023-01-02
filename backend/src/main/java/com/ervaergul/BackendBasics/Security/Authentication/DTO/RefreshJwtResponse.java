@@ -11,6 +11,7 @@ public class RefreshJwtResponse {
 
   private Integer userId;
   private String username;
+  private String authority;
   private DailyResponse dailyDetails;
   private String jwt;
 

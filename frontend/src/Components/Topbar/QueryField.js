@@ -2,8 +2,10 @@ import useZustand from "../../Hooks/useZustand"
 
 import axios from "axios"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { useEffect } from "react"
 
+import { classNames } from "primereact/utils"
 import { AutoComplete } from "primereact/autocomplete"
 import { Dialog } from "primereact/dialog"
 import { Dropdown } from "primereact/dropdown"
@@ -48,7 +50,7 @@ const QueryField = () => {
       } catch (error) {
         setFoodSuggestions([])
       }
-    }, 500)
+    }, 250)
   }
 
   const handleSelection = (e) => {
@@ -90,9 +92,24 @@ const QueryField = () => {
     //eslint-disable-next-line
   }, [selectedFood])
 
+  const itemTemplate = (item) => {
+    console.log(item)
+    return (
+      <div className={classNames("flex flex-column gap-2", { "": item.verified })}>
+        <div className="flex" style={{ gap: "0.25rem" }}>
+          {item.name}
+          {item.verified && <i alt="verifiedIcon" className="pi pi-verified text-blue-300" />}
+        </div>
+        <p className="text-sm">({item.caloriesPer100Grams} calories per 100 grams)</p>
+      </div>
+    )
+  }
+
   return (
     <>
-      <AutoComplete value={selectedFood} suggestions={foodSuggestions} onChange={(e) => setSelectedFood(e.value)} onSelect={(e) => handleSelection(e)} completeMethod={handleQueryParameterChange} field="name" placeholder="Search" />
+      <AutoComplete value={selectedFood} suggestions={foodSuggestions} onChange={(e) => setSelectedFood(e.value)} onSelect={(e) => handleSelection(e)} completeMethod={handleQueryParameterChange} field="name" placeholder="Search" itemTemplate={itemTemplate}
+        className={classNames("", { "text-blue-300": selectedFood.verified })}
+      />
 
       <Dialog onHide={() => setDialogVisible(false) & setSelectedFood("")} visible={dialogVisible} dismissableMask draggable={false} header="Add Food">
         <div className="flex flex-column" style={{ gap: "0.2rem" }}>

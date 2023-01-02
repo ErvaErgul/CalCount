@@ -18,7 +18,7 @@ const DailyIntakeSummary = () => {
   const gramsOfFatConsumed = dailyDetails.gramsOfFatConsumed
 
   return (
-    <div className="flex flex-column mx-auto mt-2 mb-5 p-3 surface-card border-round shadow-3 border-1 border-round" style={{ width: "100%", maxWidth: "480px" }}>
+    <div className="coolBorder flex flex-column mx-auto mt-2 mb-5 p-3 surface-card shadow-3 border-1" style={{ width: "100%", maxWidth: "480px" }}>
       <div className="flex justify-content-evenly">
         <div className="flex p-1 text-xl" style={{ gap: "0.25rem" }}>
           <h4 className="text-primary">Goal:</h4>

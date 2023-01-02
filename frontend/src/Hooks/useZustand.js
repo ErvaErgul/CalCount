@@ -53,6 +53,7 @@ const useZustand = create((set, get) => ({
         set({ authenticationState: true })
         set({ userId: response.data.userId })
         set({ username: response.data.username })
+        set({ authority: response.data.authority })
         set({ dailyDetails: response.data.dailyDetails })
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt
       }

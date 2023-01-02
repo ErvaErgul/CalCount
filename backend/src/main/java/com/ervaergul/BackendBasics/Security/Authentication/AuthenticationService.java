@@ -72,6 +72,7 @@ public class AuthenticationService {
 
     refreshJwtResponse.setUserId(daily.getUser().getId());
     refreshJwtResponse.setUsername(daily.getUser().getUsername());
+    refreshJwtResponse.setAuthority(daily.getUser().getAuthority());
     refreshJwtResponse.setDailyDetails(dailyService.convertDailyToDailyResponse(daily));
     refreshJwtResponse.setJwt(generateJwt(user.getUsername()));
 

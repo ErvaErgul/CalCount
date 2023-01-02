@@ -7,8 +7,9 @@ import { useEffect } from "react"
 import ApplicationLayout from "./Routes/ApplicationLayout"
 import Redirect from "./Routes/Redirect"
 
-import Home from "./Pages/Home"
 import Authentication from "./Pages/Authentication"
+import Home from "./Pages/Home"
+import CreateFood from "./Pages/CreateFood"
 import Profile from "./Pages/Profile"
 import Admin from "./Pages/Admin"
 import About from "./Pages/About"
@@ -36,13 +37,14 @@ const App = () => {
         <Route element={<AttemptAuthentication />}>
           <Route element={<ApplicationLayout />}>
 
-            <Route path="/" element={<Home />}></Route>
 
             <Route element={<Redirect redirectCondition={"authenticationUnnecessary"} />}>
               <Route path="/authentication" element={<Authentication />} />
             </Route>
 
             <Route element={<Redirect redirectCondition={"authenticationNecessary"} />}>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/createFood" element={<CreateFood />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
 

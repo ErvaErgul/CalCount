@@ -1,0 +1,8 @@
+.coolBorder {
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.roundedBorder {
+  border-radius: 1.5rem;
+}

@@ -8,7 +8,6 @@ import { useEffect } from "react"
 
 import { classNames } from "primereact/utils"
 import { Toast } from "primereact/toast"
-import { InputText } from "primereact/inputtext"
 import { InputNumber } from "primereact/inputnumber"
 import { Dropdown } from "primereact/dropdown"
 import { Button } from "primereact/button"
@@ -38,7 +37,6 @@ const Profile = () => {
   const toast = useRef(null)
 
   const [userDetails, setUserDetails] = useState("")
-  const [username, setUsername] = useState("")
   const [age, setAge] = useState("")
   const [height, setHeight] = useState()
   const [weight, setWeight] = useState()
@@ -97,12 +95,12 @@ const Profile = () => {
     try {
       const response = await axios.get("/users/" + userId + "/calculateDailyGoal")
       if (response.status === 200) {
-        toast.current.show({ severity: "success", detail: "Recalculated Daily Goals" })
+        toast.current.show({ severity: "success", summary: "Recalculated Daily Goals" })
         getUserDetails()
         getDailyDetails()
       }
     } catch (error) {
-      toast.current.show({ severity: "error", detail: "Recalculation Failed" })
+      toast.current.show({ severity: "error", summary: "Recalculation Failed" })
       console.log(error)
     } finally {
       setAppLoading(false)
