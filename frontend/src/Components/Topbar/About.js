@@ -11,7 +11,7 @@ const About = () => {
 
   return (
     <Button icon="pi pi-info-circle"
-      className={classNames("p-button-rounded p-button-icon", { "bg-primary-reverse": location.pathname === "/about" })}
+      className={classNames("p-button-rounded p-button-icon ml-auto", { "bg-primary-reverse": location.pathname === "/about" })}
       onClick={() => navigate("/about")}
     />
   )

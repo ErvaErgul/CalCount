@@ -9,7 +9,6 @@ const Topbar = () => {
     <div className="shadow-3" id="applicationTopbar" style={{ gap: "0.25rem" }}>
       <Home />
       <QueryField />
-      <h1 className="mx-auto align-self-center font-italic font-medium">Trackcals</h1>
       <About />
       <Avatar />
     </div>
